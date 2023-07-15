@@ -5,6 +5,7 @@ const weather = async () => {
   let data = await fetch(
     "https://api.weatherapi.com/v1/forecast.json?key=ff9b41622f994b1287a73535210809&q=lucknow&days=2"
   );
+  
   data = await data.json();
   return data;
 };
@@ -23,3 +24,6 @@ const page = async () => {
 };
 
 export default page;
+
+
+

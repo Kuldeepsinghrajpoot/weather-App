@@ -1,9 +1,11 @@
 import React from 'react';
-import Weather from './weathercard/page'
+import Weather from "./weathercard/page";
+import Search from './serach'
 const page = () => {
   return (
     <div>
-    <Weather/>
+      <Search/>
+      <Weather/>
     </div>
   );
 }
