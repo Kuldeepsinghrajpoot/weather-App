@@ -3,18 +3,14 @@
 
 import axios from "axios";
 import React, {useEffect, useState } from "react";
-import {useSearchParams,useRouter} from 'next/navigation'
+import {useSearchParams} from 'next/navigation'
 const Card = () => {
  const serach = useSearchParams();
  const id = serach.get('id');
- const router = useRouter();
  console.log(id);
   const [data, setdata] = useState([]);
   const [Condition, setCondition] = useState([]);
   const [temp, setTemp] = useState([]);
-
-  
-
   const formattedDateDisplay = (date) => {
     const options = {
       weekday: "long",
@@ -22,10 +18,8 @@ const Card = () => {
       month: "long",
       day: "numeric",
     };
-
     return new Date(date).toLocaleDateString("en-US", options);
   };
-
   const fetchData = async () => {
     const res = await axios.get(`https://api.weatherapi.com/v1/forecast.json?key=ff9b41622f994b1287a73535210809&q=${id}&days=2`);
     setdata(res.data.location);
@@ -36,17 +30,11 @@ const Card = () => {
  
   useEffect(() => {
     fetchData();
-   
   });
-
   return (
     <>
-
       <div className="min-h flex items-center justify-center ">
         <div className="flex flex-col bg-white rounded p-4 w-full max-w-xs box-content  border">
-          {/* {data.map((data,key)=>{
-            const{} = data;
-          })} */}
           <div className="flex justify-start space-x-5">
             <div className="font-bold text-xl"> {data.name}</div>
             <div className="text-sml text-gray-500">
@@ -73,7 +61,6 @@ const Card = () => {
                 </span>
                 <span className="text-sm font-light text-gray-500">{temp.feelslike_c}°C</span>
               </div>
-
             </div>
           </div>
           {/* <hr className="border"></hr> */}
@@ -86,7 +73,6 @@ const Card = () => {
               <div className="font-medium text-sm">Humidity</div>
               <div className="text-sm text-gray-500">{temp.humidity}%</div>
             </div>
-
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
-import Search from './serach'
+import Search from './search'
 
 const inter = Inter({ subsets: ['latin'] })
 // import MyState from './MyState.js'
